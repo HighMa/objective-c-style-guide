@@ -361,21 +361,33 @@ NSImage *previewPaneImage;
 
 ### 图片资源命名
 
-图片文件命名采用 `type_location_identifier_state` 规则
+图片文件命名采用 `type_location_identifier_state` 方式。
 
-TODO
+**`type` 只能用以下列表中的:**
 
-- icon
-- btn
-- bg
-- line
-- logo
-- pic
-- img
+- `icon` 图标，不能点击的有意义的小图片。
+- `btn` button 所用到的图片，以及能点击的 view 所用到的图片。
+- `bg` 背景，包括 view 的背景、cell 的背景等。
+- `line` 分割线切图，包括某些时候的阴影图片。
+- `logo` 项目的 logo，包括第三方的 logo。
+- `pic` 照片类图片，打包到项目中的照片、广告图等。
+- `img` 不属于以上类别的图片，都用 `img` 作为type。
 
-使用图片时候不要有 `.png` 后缀
+**`location` 使用功能模块名称、Controller 的名称或者 tabbar、navbar 等。**
 
-**参考:**
+- 多个功能、界面使用的图片要使用 `common`。
+
+**`identifier` 为唯一标示符，描述图片对应功能**
+
+- `btn_navbar_add`、`btn_navbar_delete` 导航条上的新增、删除按钮。
+- `btn_user_setting` 用户 Controller 中的设置按钮。
+
+**`state` 如果组件有多个状态要增加描述，可选项**
+
+- `btn_navbar_add_default` - `btn_navbar_add_highlighted`
+
+**使用图片时候不要有 `.png` 后缀，参考:**
+
 ```
 UIImage *settingIcon = [UIImage imageNamed:@"icon_common_setting"];
 ```
@@ -408,9 +420,16 @@ UIImage *settingIcon = [UIImage imageNamed:@"icon_common_setting"];
 //
 ```
 
-TODO: 声明部分的注释
+## 方法注释
 
-TODO: 代码中的注释
+需要安装 [VVDocumenter-Xcode](https://github.com/onevcat/VVDocumenter-Xcode) 使用自动生成的方法注释
+
+![Screenshot](https://raw.github.com/onevcat/VVDocumenter-Xcode/master/ScreenShot.gif)
+
+## 代码中的注释
+
+- 对于不用的代码，尽量使用 `//` 注释。
+- `/* */` 注释只用于临时关闭大块代码时使用，不要将 `/* */` 注释提交到 git 中。
 
 
 ## iOS 工程结构
