@@ -1,7 +1,7 @@
 objective-c-style-guide
 =======================
 
-以下为 时尚Cosmo 团队所执行 Objective-C 编码规范。
+以下为 High 团队所执行 Objective-C 编码规范。
 
 
 ## 介绍
